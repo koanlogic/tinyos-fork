@@ -38,6 +38,9 @@
 #include "tinyos_net.h"
 #endif
 
+#include "PrintfUART.h"
+#define printf(...) printfUART(__VA_ARGS__)
+
 module CoapBlipP {
   uses {
     interface Boot;
@@ -65,6 +68,8 @@ module CoapBlipP {
 #endif
 
   command error_t Init.init() {
+    printfUART_init();
+    printf("init()\n");
     return SUCCESS;
   }
 
