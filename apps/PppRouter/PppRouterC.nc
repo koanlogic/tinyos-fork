@@ -53,11 +53,15 @@ configuration PppRouterC {
   RplBorderRouterP.IPPacket -> IPPacketC;
 #endif
 
+#ifdef UDP_SHELL
   // UDP shell on port 2000
   components UDPShellC;
+#endif
 
+#ifdef RT_DBG
   // prints the routing table
   components RouteCmdC;
+#endif
 
 #ifndef IN6_PREFIX
   components Dhcp6ClientC;

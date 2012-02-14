@@ -17,7 +17,16 @@ PFLAGS += -DPPP_HDLC_RX_FRAME_LIMIT=1 -DPPP_HDLC_TX_FRAME_LIMIT=8
 # will use this prefix combined with TOS_NODE_ID
 PFLAGS += -DIN6_PREFIX=\"fec0::\"
 
+# Z1 minimisation (enabled by default - comment next line to disable)
+MINIMAL=1
+ifdef MINIMAL
+PFLAGS += -DROUTE_TABLE_SZ=3
+PFLAGS += -DMAX_PARENT=1
+else
 # derive short address from the dhcp address assignment, if possible
 PFLAGS += -DBLIP_DERIVE_SHORTADDRS
+PFLAGS += -DUDP_SHELL
+PFLAGS += -DRT_DBG
+endif
 
 include $(MAKERULES)
