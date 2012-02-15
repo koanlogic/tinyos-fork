@@ -16,6 +16,8 @@ all: $(TARGETS)
 check:
 	./run.sh
 
+install: ;
+
 clean:
 	rm -f $(TARGETS) *.o
 

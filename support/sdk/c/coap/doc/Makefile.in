@@ -33,6 +33,8 @@ FILES:=Makefile.in Doxyfile.in html
 doc:	Doxyfile
 	$(DOXYGEN) >./doxygen.out 2>&1 
 
+install: ;
+
 clean:
 	@rm -rf html
 

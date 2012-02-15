@@ -65,6 +65,8 @@ $(LIB):	$(OBJECTS)
 	$(AR) $(ARFLAGS) $@ $^ 
 	ranlib $@
 
+install: ;
+
 clean:
 	@rm -f $(PROGRAM) main.o $(LIB) $(OBJECTS)
 	for dir in $(SUBDIRS); do \
